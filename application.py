@@ -35,7 +35,7 @@ def ner():
 # (requires fetch_website_text function), performs named entity recognition (NER),
 # and renders the results in web.html. Shows an error message if processing fails.
 
-@app.route('/web', methods=["GET", 'POST'])
+@application.route('/web', methods=["GET", 'POST'])
 def web():
     url = request.form.get('url_input')
     text = fetch_website_text(url) if url else None
@@ -48,7 +48,7 @@ def web():
         return render_template('web.html', error_message=error_message)
 
 
-@app.route('/wordcloud', methods=["GET", "POST"])
+@application.route('/wordcloud', methods=["GET", "POST"])
 def wordcloud():
     wordcloud_image = None
     word_count = None
@@ -97,7 +97,7 @@ def wordcloud():
 
 
 
-@app.route('/pos', methods=["GET", "POST"])
+@application.route('/pos', methods=["GET", "POST"])
 def pos():
     pos_tags = None
     pos_html = None
@@ -124,7 +124,7 @@ def pos():
                          grouped_tags=grouped_tags,
                          error_message=error_message)
     
-@app.route('/semantic', methods=["GET", "POST"])
+@application.route('/semantic', methods=["GET", "POST"])
 def semantic():
     dependencies = None
     dep_html = None
@@ -145,7 +145,7 @@ def semantic():
     
     return render_template('semantic.html', dependencies=dependencies, dep_html=dep_html, error_message=error_message)
 
-@app.route('/romanize', methods=["GET", "POST"])
+@application.route('/romanize', methods=["GET", "POST"])
 def romanize():
     romanization_result = None
     error_message = None
@@ -166,7 +166,7 @@ def romanize():
     return render_template('romanize.html', result=romanization_result, error_message=error_message)
 
 
-@app.route('/about')
+@application.route('/about')
 def about():
     return render_template('about.html')
 
@@ -176,4 +176,4 @@ def help():
 
 if __name__ == "__main__":
     logging.debug("Starting Flask app...")
-    app.run(debug=True)
+    application.run(debug=True)
