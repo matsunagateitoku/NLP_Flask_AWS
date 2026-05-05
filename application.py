@@ -5,19 +5,14 @@ import logging
 
 # Set up logging for the Flask app
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-app = Flask(__name__)
+application = Flask(__name__)
 
 
-
-
-
-app = Flask(__name__)
-
-@app.route("/", methods=["GET", "POST"])
+@application.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html") # note: changing to home.html breaks the app
 
-@app.route('/ner' , methods=["GET", "POST"])
+@application.route('/ner' , methods=["GET", "POST"])
 def ner():
     named_entities = None
     displacy_html = None
