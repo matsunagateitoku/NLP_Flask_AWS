@@ -1,4 +1,4 @@
-This repo is used to build my NLP at Digital Ocean
+This repo is used to build my NLP app on AWS. It is a clone of the code for the Digital Ocean app.
 
 Built using Flask
 
