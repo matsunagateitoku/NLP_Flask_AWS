@@ -170,7 +170,7 @@ def romanize():
 def about():
     return render_template('about.html')
 
-@app.route('/help')
+@application.route('/help')
 def help():
     return render_template('help.html')
 
